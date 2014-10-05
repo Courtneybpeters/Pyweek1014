@@ -21,9 +21,17 @@ def main():
     """
 
     pygame.init()
-    screen = pygame.display.set_mode((conf["width"],conf["height"]))
+
+    displaysurf = pygame.Surface((conf["width"], conf["height"]))
+    if (conf["fullscreen"]):
+        screen = pygame.display.set_mode((conf["display_width"],conf["display_height"]), FULLSCREEN)
+    else:
+        screen = pygame.display.set_mode((conf["display_width"],conf["display_height"]))
     #print data.load('sample.txt').read()
-    
+
+    displaysurf.convert()
+
+
     clock = pygame.time.Clock()
 
     active_scene = menus.Main()
@@ -52,10 +60,15 @@ def main():
         
         active_scene.ProcessInput(filtered_events, pressed_keys)
         active_scene.Update()
-        active_scene.Render(screen)
+        active_scene.Render(displaysurf)
         
         active_scene = active_scene.next
-        
+        if (conf["show_fps"]):
+            font = pygame.font.SysFont('', size=32)
+            fps_label = font.render(str(clock.get_fps()), 1, (255,255,0), (0,0,0))
+            displaysurf.blit(fps_label, (0,0))
+        pygame.transform.scale(displaysurf, (conf["display_width"],conf["display_height"]), screen)
         pygame.display.flip()
-        clock.tick(conf["fps"])
+        clock.tick()
+        #clock.tick(conf["fps"])
     

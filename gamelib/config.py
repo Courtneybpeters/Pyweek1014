@@ -8,8 +8,12 @@ class Config(object):
         else:
             #define default config here
             self.settings = dict()
-            self.settings["width"] = 800
-            self.settings["height"] = 600
+            self.settings["display_width"] = 1920
+            self.settings["display_height"] = 1080
+            self.settings["width"] = 1920
+            self.settings["height"] = 1080
+            self.settings["fullscreen"] = False
+            self.settings['show_fps'] = True
             self.settings["fps"] = 60
 
             colors = dict()

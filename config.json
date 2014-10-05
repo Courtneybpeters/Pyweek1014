@@ -1,1 +1,1 @@
-{"width": 800, "colors": {"bgcolor": [25, 0, 51], "textcolor": [255, 255, 255], "hovercolor": [0, 255, 0]}, "fps": 60, "height": 600}
+{"fullscreen": false, "show_fps": true, "width": 1920, "colors": {"bgcolor": [25, 0, 51], "textcolor": [255, 255, 255], "hovercolor": [0, 255, 0]}, "fps": 60, "display_width": 960, "height": 1080, "display_height": 540}
