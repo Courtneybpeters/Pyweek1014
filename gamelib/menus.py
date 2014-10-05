@@ -2,10 +2,12 @@ from scene import SceneBase
 import pygame
 import game
 import config
+import gui
 
 class Main(SceneBase):
     def __init__(self):
         SceneBase.__init__(self)
+
     
     def ProcessInput(self, events, pressed_keys):
         for event in events:
@@ -17,6 +19,11 @@ class Main(SceneBase):
         pass
     
     def Render(self, screen):
-        # For the sake of brevity, the title scene is a blank red screen 
+        UI = gui.UI(screen)
         screen.fill((25, 0, 51))
-        startrect = pygame.draw.rect(screen, self.conf["colors"]["textcolor"], (10, 10, 50, 100))
+        center_width = self.conf["width"]/2
+        center_height = self.conf["height"]/2
+        start_button = UI.make_button('start',((center_width-125), (center_height-40), 250, 80))
+        options_button = UI.make_button('options', ((center_width-125), ((center_height-40)+ 90), 250, 80))
+
+
