@@ -11,7 +11,12 @@ class Config(object):
             self.settings["width"] = 800
             self.settings["height"] = 600
             self.settings["fps"] = 60
-            self.foo = 10
+
+            colors = dict()
+            colors["textcolor"] = (255, 255, 255)
+            colors["bgcolor"] = (25, 0, 51)
+            colors["hovercolor"] = (0, 255, 0)
+            self.settings["colors"] = colors
             self.save()
 
     def _load(self, filename):
@@ -22,7 +27,7 @@ class Config(object):
         f = file(filename, "w")
         f.write(json.dumps(self.settings))
         f.close()
-        print(self.foo)
+
 
     def save(self):
         self._save(CONFIGFILE)

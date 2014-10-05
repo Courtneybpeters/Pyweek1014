@@ -1,6 +1,7 @@
 from scene import SceneBase
 import pygame
 import game
+import config
 
 class Main(SceneBase):
     def __init__(self):
@@ -17,4 +18,5 @@ class Main(SceneBase):
     
     def Render(self, screen):
         # For the sake of brevity, the title scene is a blank red screen 
-        screen.fill((255, 0, 0))
+        screen.fill((25, 0, 51))
+        startrect = pygame.draw.rect(screen, self.conf["colors"]["textcolor"], (10, 10, 50, 100))

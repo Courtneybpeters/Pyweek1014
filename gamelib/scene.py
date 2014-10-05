@@ -1,8 +1,10 @@
 import pygame
+import config
 
 class SceneBase:
     def __init__(self):
         self.next = self
+        self.conf = config.Config().settings
     
     def ProcessInput(self, events, pressed_keys):
         print("uh-oh, you didn't override this in the child class")
